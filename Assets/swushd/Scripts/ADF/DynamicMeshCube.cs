@@ -660,6 +660,7 @@ public class DynamicMeshCube : MonoBehaviour
         if (m_meshFilter == null)
         {
             Debug.Log("mesh filter is null");
+            GetMeshFilter();
             return -1;
         }
         
@@ -1254,6 +1255,20 @@ public class DynamicMeshCube : MonoBehaviour
 
         // adjust per voxel normal
         return createdTriangles;
+    }
+
+    private void GetMeshFilter()
+    {
+        m_meshFilter = gameObject.GetComponent<MeshFilter>();
+        if (m_meshFilter == null)
+        {
+            m_meshFilter = gameObject.AddComponent<MeshFilter>();
+        }
+
+        if (m_meshFilter == null)
+        {
+            Debug.LogError("Could not get or add MeshFilter");
+        }
     }
 
     /// <summary>

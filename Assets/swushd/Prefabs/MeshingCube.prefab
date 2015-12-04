@@ -12,6 +12,8 @@ GameObject:
   - 23: {fileID: 2300000}
   - 33: {fileID: 3300000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11478476}
+  - 143: {fileID: 14351834}
   m_Layer: 0
   m_Name: MeshingCube
   m_TagString: Untagged
@@ -70,7 +72,7 @@ MeshCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 13400000, guid: 7784f1358a09f4475969e8dd7266de23, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 0}
@@ -86,13 +88,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_voxelResolution: 10
+--- !u!114 &11478476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d3a85c1b40d40c5bf0f6bf842cd649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_poseCount: 0
+  m_poseStatus: 0
+  m_tangoPosition: {x: 0, y: 0, z: 0}
+  m_tangoRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_enableClutchUI: 0
+--- !u!143 &14351834
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: .5
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: .00100000005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_useAreaDescriptionPose
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
