@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 449632}
-  - 114: {fileID: 11409454}
   - 143: {fileID: 14352352}
   m_Layer: 0
   m_Name: Rooted
@@ -63,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &168734
 GameObject:
   m_ObjectHideFlags: 1
@@ -423,22 +422,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174888}
   m_Enabled: 1
---- !u!114 &11409454
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108304}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d3a85c1b40d40c5bf0f6bf842cd649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_poseCount: 0
-  m_poseStatus: 0
-  m_tangoPosition: {x: 0, y: 0, z: 0}
-  m_tangoRotation: {x: 0, y: 0, z: 0, w: 0}
-  m_enableClutchUI: 0
 --- !u!114 &11413596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86a48047cec4ab49ab81080ebabdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uuid: 4f920115-3583-4daf-af6d-5cb7d22db607
+  uuid: 27b7428e-a17c-4a54-80b1-1f85752e5636
   m_poseCount: 0
   m_poseStatus: 0
 --- !u!114 &11455176
@@ -582,7 +565,7 @@ MonoBehaviour:
   - {fileID: 11427134}
   - {fileID: 11452268}
   - {fileID: 11456974}
-  - {fileID: 11409454}
+  - {fileID: 0}
 --- !u!114 &11480294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,7 +692,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: uuid
-      value: 4f920115-3583-4daf-af6d-5cb7d22db607
+      value: 27b7428e-a17c-4a54-80b1-1f85752e5636
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_enableOcclusion

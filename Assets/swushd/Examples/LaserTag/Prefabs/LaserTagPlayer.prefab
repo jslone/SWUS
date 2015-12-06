@@ -65,7 +65,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &140640
 GameObject:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &166440
 GameObject:
   m_ObjectHideFlags: 1
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86a48047cec4ab49ab81080ebabdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uuid: 4f920115-3583-4daf-af6d-5cb7d22db607
+  uuid: 27b7428e-a17c-4a54-80b1-1f85752e5636
   m_poseCount: 0
   m_poseStatus: 0
 --- !u!114 &11427134
@@ -1163,6 +1163,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: uuid
+      value: 27b7428e-a17c-4a54-80b1-1f85752e5636
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
