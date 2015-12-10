@@ -3,19 +3,19 @@ using UnityEngine.Networking;
 using System.Collections;
 
 public class CachePlayerPrefab : NetworkBehaviour {
+
+    private Vector3 spawnPosition;
+
     public override void OnStartLocalPlayer() {
         base.OnStartLocalPlayer();
 
         StaticSyncUI.SetPlayer(this);
-    }
-
-    void Start() {
-        Debug.Log("You are player " + playerControllerId);
+        spawnPosition = transform.position;
     }
 
     public void resetPosition() {
         Debug.Log("Resetting Position");
-        transform.position = playerControllerId * new Vector3(0.2f, 0, 0);
+        transform.position = spawnPosition;
         transform.rotation = Quaternion.identity;
     }
 }

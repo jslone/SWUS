@@ -16,6 +16,7 @@ public class StaticSyncUI : MonoBehaviour {
     }
 
     public void ResetPlayer() {
+        Debug.Log(Time.time);
         if (player) {
             player.resetPosition();
         }
@@ -23,6 +24,5 @@ public class StaticSyncUI : MonoBehaviour {
 
     public static void SetPlayer(CachePlayerPrefab player) {
         instance.player = player;
-        instance.buttonText.text = "Reset Position (" + player.playerControllerId + ")";
     }
 }
