@@ -297,7 +297,7 @@ public class TangoStartAreaPose : MonoBehaviour, ITangoLifecycle, ITangoPose
     public void OnTangoPoseAvailable(TangoPoseData pose)
     {
         // Get out of here if the pose is null
-        if (pose == null)
+        if (pose == null || pose.status_code != TangoEnums.TangoPoseStatusType.TANGO_POSE_VALID)
         {
             Debug.Log("TangoPoseDate is null.");
             return;
@@ -336,17 +336,7 @@ public class TangoStartAreaPose : MonoBehaviour, ITangoLifecycle, ITangoPose
     /// <param name="permissionsGranted"><c>true</c> if permissions were granted, otherwise <c>false</c>.</param>
     public void OnTangoPermissions(bool permissionsGranted)
     {
-        if (permissionsGranted)
-        {
-            if (m_tangoApplication.m_enableADFLoading && m_areaDescription != null)
-            {
-                m_tangoApplication.Startup(m_areaDescription);
-            }
-            else
-            {
-                m_tangoApplication.Startup(null);
-            }
-        }
+        if (permissionsGranted) {}
         else
         {
             AndroidHelper.ShowAndroidToastMessage("Motion Tracking Permissions Needed", true);
@@ -419,8 +409,8 @@ public class TangoStartAreaPose : MonoBehaviour, ITangoLifecycle, ITangoPose
         }
 
         // Calculate final position and rotation deltas and apply them.
-        transform.localPosition += m_tangoPosition;
-        transform.localRotation *= m_tangoRotation;
+        transform.localPosition = m_tangoPosition;
+        transform.localRotation = m_tangoRotation;
     }
 
     /// <summary>

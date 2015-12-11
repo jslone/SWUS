@@ -69,6 +69,11 @@ namespace swushd
         /// The most recent Tango position.
         /// </summary>
         private Quaternion m_tangoRotation;
+        
+        /// <summary>
+        /// Flag indicating pose data has been received from the area description
+        /// <summary>
+        private bool m_hasReceivedAreaPose;
 
         // We use couple of matrix transformation to convert the pose from Tango coordinate
         // frame to Unity coordinate frame.
@@ -111,6 +116,7 @@ namespace swushd
             m_poseStatus = TangoEnums.TangoPoseStatusType.NA;
             m_tangoRotation = Quaternion.identity;
             m_tangoPosition = Vector3.zero;
+            m_hasReceivedAreaPose = false;
         }
 
         /// <summary>
@@ -188,9 +194,21 @@ namespace swushd
             pair.targetFrame = TangoEnums.TangoCoordinateFrameType.TANGO_COORDINATE_FRAME_DEVICE;
             PoseProvider.GetPoseAtTime(pose, timestamp, pair);
 
+            // Fallback to start of service position
+            if(pose.status_code != TangoEnums.TangoPoseStatusType.TANGO_POSE_VALID && !m_hasReceivedAreaPose)
+            {
+                pair.baseFrame = TangoEnums.TangoCoordinateFrameType.TANGO_COORDINATE_FRAME_START_OF_SERVICE;
+                PoseProvider.GetPoseAtTime(pose, timestamp, pair);
+            }
+
             // The callback pose is for device with respect to start of service pose.
             if (pose.status_code == TangoEnums.TangoPoseStatusType.TANGO_POSE_VALID)
             {
+                if(!m_hasReceivedAreaPose)
+                {
+                    m_hasReceivedAreaPose = true;
+                }
+
                 // Construct matrix for the start of service with respect to device from the pose.
                 Vector3 posePosition = new Vector3((float)pose.translation[0],
                                                    (float)pose.translation[1],
